@@ -13,13 +13,13 @@ Modificar el método getEdit() para que obtenga el proyecto pasado por parámetr
     public function getIndex()
     {
         return view('proyectos.index')
-            ->with('proyectos', Proyecto:: ) ;
+            ->with('proyectos', Proyecto::all()) ;
     }
 
     public function getShow($id)
     {
         return view('proyectos.show')
-            ->with('proyecto', self::$arrayProyectos[$id])
+            ->with('proyecto', Proyecto::findOrFail($id))
             ->with('id', $id);
     }
 
@@ -31,7 +31,7 @@ Modificar el método getEdit() para que obtenga el proyecto pasado por parámetr
     public function getEdit($id)
     {
         return view('proyectos.edit')
-            ->with('proyecto', self::$arrayProyectos[$id])
+            ->with('proyecto', Proyecto::findOrFail($id))
             ->with('id', $id);
     }
 

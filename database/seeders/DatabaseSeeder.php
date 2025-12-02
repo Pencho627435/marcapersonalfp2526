@@ -18,10 +18,10 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        // User::factory()->create([
+        //     'name' => 'Test User',
+        //     'email' => 'test@example.com',
+        // ]);
 
         self::seedProyectos();
         $this->command->info('Tabla catálogo inicializada con datos!');
@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
 
     private function seedProyectos(): void
     {
-        proyecto::truncate();
+        Proyecto::truncate();
 
         foreach (self::$arrayProyectos as $proyecto) {
             $p = new Proyecto;
